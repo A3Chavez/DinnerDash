@@ -285,7 +285,7 @@ public class Driver extends JFrame {
 		delivery.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// Call the delivery class here
+				// call the delivery class here
 				payWindow();
 	        	delete();
 			}
