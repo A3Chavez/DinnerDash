@@ -149,7 +149,7 @@ public class Driver extends JFrame {
 				try {
 					if (!orderPrice.getText().equals("Total Cost = $0.00")) {
 						menu.logOrder(itemsOrdered, totalCost);
-						payWindow();
+						delivery();
 						delete();
 					}
 					else {
@@ -249,5 +249,47 @@ public class Driver extends JFrame {
             	JOptionPane.showMessageDialog(cookTimeFrame, "Your food will be ready in: " + cookTime + " minutes!");
             }
         });
+    }
+	
+	public void delivery() {
+		JPanel panel = new JPanel();
+		JFrame frame = new JFrame();
+		frame.setSize(500, 500);
+		frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.add(panel);
+		
+		panel.setLayout(null);
+		
+		JLabel label = new JLabel("Would you like to pick-up your order or have it delivered?");
+		label.setBounds(80, 80, 320, 80);
+		panel.add(label);
+		
+		JButton pickUp = new JButton("Pick-Up");
+		pickUp.setBounds(80, 200, 80, 25);
+		panel.add(pickUp);
+		
+		JButton delivery = new JButton("Delivery");
+		delivery.setBounds(300, 200, 80, 25);
+		panel.add(delivery);
+		
+		pickUp.addActionListener(new ActionListener() {
+	           @Override
+	           public void actionPerformed(ActionEvent e) {
+	        	   payWindow();
+	        	   delete();
+	           }
+	    });
+		 
+		delivery.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// Call the delivery class here
+				payWindow();
+	        	delete();
+			}
+		});
+		
     }
 }
