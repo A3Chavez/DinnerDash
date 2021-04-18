@@ -12,7 +12,7 @@ public class Delivery {
 	private ArrayList<Integer> deliveryDriversTimes ; 
 	private int totalTime;
 	private Random rand;
-	private int cookTime;
+	private int totalTime;
 	private int selectedDriver;
 	private File deliveryDriversFile;
 	private Scanner fileScanner;
@@ -21,7 +21,7 @@ public class Delivery {
  * Initialized the random object, the deliveryDrivers, and the deliveryDriversTimes
  * 
  */
-	public Delivery(int cookTime) throws FileNotFoundException {
+	public Delivery(int totalTime) throws FileNotFoundException {
 		deliveryDrivers = new ArrayList<String>();
 		deliveryDriversTimes = new ArrayList<Integer>();
 		fileScanner = new Scanner( new File("deliveryDrivers.txt"));
@@ -32,8 +32,12 @@ public class Delivery {
 		selectedDriver = rand.nextInt();
 		
 		
-		this.cookTime = cookTime;
+		this.totalTime = totalTime;
 		totalTime = 0;
+	}
+	
+	public int getTotalTime() {
+		return totalTime;
 	}
 	
 	/*

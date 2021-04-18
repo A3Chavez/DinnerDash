@@ -246,7 +246,7 @@ public class Driver extends JFrame {
             	frame.dispose();
             	
             	JFrame cookTimeFrame = new JFrame();
-            	JOptionPane.showMessageDialog(cookTimeFrame, "Your food will be ready in: " + cookTime + " minutes!");
+            	JOptionPane.showMessageDialog(cookTimeFrame, "Your food will be ready in: " + Delivery.getTotalTime(cookTime) + " minutes!");
             }
         });
     }
@@ -277,6 +277,7 @@ public class Driver extends JFrame {
 		pickUp.addActionListener(new ActionListener() {
 	           @Override
 	           public void actionPerformed(ActionEvent e) {
+	        	   deliveryFrame.dispose();
 	        	   payWindow();
 	        	   delete();
 	           }
@@ -285,9 +286,12 @@ public class Driver extends JFrame {
 		delivery.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// call the delivery class here
-				payWindow();
-	        	delete();
+				deliveryFrame.dispose();
+				
+				JFrame deliveryFrame2 = new JFrame();
+			    Object result = JOptionPane.showInputDialog(deliveryFrame2, "Enter your address:");
+
+			    System.out.println(result);
 			}
 		});
 		
