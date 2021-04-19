@@ -98,3 +98,94 @@ Kraft Single   1.0
 An Actual Chicken   120.5
 Total Price is: $208.5
  
+Order number1, Kraft Single   1.0
+Hangover Happy Meal   22.0
+Total Price is: $23.0
+ 
+Order number1, Kraft Single   1.0
+Hangover Happy Meal   22.0
+Total Price is: $23.0
+ 
+Order number1, Chicken Fajita Pita   15.0
+Double Cheeseburger   4.5
+Hangover Happy Meal   22.0
+Total Price is: $41.5
+ 
+Order number1, Hangover Happy Meal   22.0
+Chicken Fajita Pita   15.0
+Hangover Happy Meal   22.0
+Total Price is: $59.0
+ 
+Order number1, Chicken Fajita Pita   15.0
+Hangover Happy Meal   22.0
+An Actual Chicken   120.5
+Total Price is: $157.5
+ 
+Order number1, Hangover Happy Meal   22.0
+Kraft Single   1.0
+An Actual Chicken   120.5
+Total Price is: $143.5
+ 
+Order number1, Chicken Fajita Pita   15.0
+Hangover Happy Meal   22.0
+Kraft Single   1.0
+Total Price is: $38.0
+ 
+Order number2, Hangover Happy Meal   22.0
+Kraft Single   1.0
+Total Price is: $23.0
+ 
+Order number1, Chicken Fajita Pita   15.0
+Hangover Happy Meal   22.0
+Kraft Single   1.0
+Total Price is: $38.0
+ 
+Order number1, Chicken Fajita Pita   15.0
+Hangover Happy Meal   22.0
+Kraft Single   1.0
+Total Price is: $38.0
+ 
+Order number1, Chicken Fajita Pita   15.0
+Kraft Single   1.0
+Total Price is: $16.0
+ 
+Order number1, Hangover Happy Meal   22.0
+Kraft Single   1.0
+An Actual Chicken   120.5
+Total Price is: $143.5
+ 
+Order number2, Kraft Single   1.0
+Hangover Happy Meal   22.0
+Garden Salad   20.0
+Total Price is: $43.0
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 

@@ -16,7 +16,6 @@ public class Tester {
 		} catch(Exception e) {
 			JOptionPane.showMessageDialog(null, "Error! Program terminated", " Error", JOptionPane.ERROR_MESSAGE);
 		}
-		
 	}
 
 }

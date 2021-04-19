@@ -3,6 +3,7 @@ import ordering.Menu;
 import ordering.MenuItem;
 import ordering.Payment;
 import ordering.CreditCard;
+import ordering.Delivery;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -245,34 +246,41 @@ public class Driver extends JFrame {
             	
             	frame.dispose();
             	
+            	try {
+            		Delivery deliveryTime = new Delivery(cookTime);
+            		cookTime = deliveryTime.addUpTo();
+            	} catch (FileNotFoundException notFound) {
+            		JOptionPane.showMessageDialog(null, "Error! Program terminated", " Error", JOptionPane.ERROR_MESSAGE);
+            	}
+            	
             	JFrame cookTimeFrame = new JFrame();
-            	JOptionPane.showMessageDialog(cookTimeFrame, "Your food will be ready in: " + Delivery.getTotalTime(cookTime) + " minutes!");
+            	JOptionPane.showMessageDialog(cookTimeFrame, "Your food will be ready in: " + cookTime + " minutes!");
             }
         });
     }
 	
 	public void delivery() {
-		JPanel panel = new JPanel();
-		JFrame frame = new JFrame();
-		frame.setSize(500, 500);
-		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		frame.add(panel);
+		JPanel deliveryPanel = new JPanel();
+		JFrame deliveryFrame = new JFrame();
+		deliveryFrame.setSize(500, 300);
+		deliveryFrame.setResizable(false);
+		deliveryFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		deliveryFrame.setVisible(true);
+		deliveryFrame.add(deliveryPanel);
 		
-		panel.setLayout(null);
+		deliveryPanel.setLayout(null);
 		
 		JLabel label = new JLabel("Would you like to pick-up your order or have it delivered?");
 		label.setBounds(80, 80, 320, 80);
-		panel.add(label);
+		deliveryPanel.add(label);
 		
 		JButton pickUp = new JButton("Pick-Up");
 		pickUp.setBounds(80, 200, 80, 25);
-		panel.add(pickUp);
+		deliveryPanel.add(pickUp);
 		
 		JButton delivery = new JButton("Delivery");
 		delivery.setBounds(300, 200, 80, 25);
-		panel.add(delivery);
+		deliveryPanel.add(delivery);
 		
 		pickUp.addActionListener(new ActionListener() {
 	           @Override
@@ -291,7 +299,8 @@ public class Driver extends JFrame {
 				JFrame deliveryFrame2 = new JFrame();
 			    Object result = JOptionPane.showInputDialog(deliveryFrame2, "Enter your address:");
 
-			    System.out.println(result);
+			    payWindow();
+			    delete();
 			}
 		});
 		

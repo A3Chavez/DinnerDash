@@ -2,6 +2,7 @@ package ordering;
 import java.io.File;
 //import java.io.BufferedReader;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 import java.util.Random;
 import java.util.ArrayList;
 import java.io.FileNotFoundException ;
@@ -12,8 +13,9 @@ public class Delivery {
 	private ArrayList<Integer> deliveryDriversTimes ; 
 	private int totalTime;
 	private Random rand;
-	private int totalTime;
+	private int cookTime;
 	private int selectedDriver;
+	private StringTokenizer tokens;
 	private File deliveryDriversFile;
 	private Scanner fileScanner;
 	
@@ -21,23 +23,18 @@ public class Delivery {
  * Initialized the random object, the deliveryDrivers, and the deliveryDriversTimes
  * 
  */
-	public Delivery(int totalTime) throws FileNotFoundException {
+	public Delivery(int cookTime) throws FileNotFoundException {
 		deliveryDrivers = new ArrayList<String>();
 		deliveryDriversTimes = new ArrayList<Integer>();
 		fileScanner = new Scanner( new File("deliveryDrivers.txt"));
 		fileReader(fileScanner);
 
-		rand = new Random(deliveryDrivers.size());
+		rand = new Random();
 		
-		selectedDriver = rand.nextInt();
+		selectedDriver = rand.nextInt(deliveryDrivers.size());
 		
-		
-		this.totalTime = totalTime;
+		this.cookTime = cookTime;
 		totalTime = 0;
-	}
-	
-	public int getTotalTime() {
-		return totalTime;
 	}
 	
 	/*
@@ -46,7 +43,7 @@ public class Delivery {
 	 * 
 	 */
 	public void fileReader(Scanner fileScanner) {
-		int i = 0;   //COUNTER
+		/*int i = 0;   //COUNTER
 		
 		while(fileScanner.hasNext()) {   ////////////////////////////WHILE LOOP
 			if( !fileScanner.hasNext(";")) {
@@ -63,7 +60,19 @@ public class Delivery {
 			
 			i++;
 		}
+		*/
 		
+		while(fileScanner.hasNextLine()) {
+			String driver = fileScanner.nextLine();
+			tokens = new StringTokenizer(driver, ";");
+			while(tokens.hasMoreTokens()) {
+				String driverName = tokens.nextToken();
+				int driverTime = Integer.parseInt(tokens.nextToken());
+				deliveryDrivers.add(driverName);
+				deliveryDriversTimes.add(driverTime);
+			}
+		}
+		fileScanner.close();
 		
 	}
 	
