@@ -9,6 +9,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.*;
 
@@ -66,9 +68,22 @@ public class LogIn extends JFrame implements ActionListener {
 			}
 	      } else {
 	    	 
-	         message.setText(" Invalid user. Try Again or Exit Out.");
-	         
+	         //message.setText(" Invalid user. Try Again or Exit Out.");
+	         addProfile(userName, password);
 	      }
 	     
 	   }
+	   
+	   public void addProfile(String userName, String password) {
+           try {
+                FileWriter writer = new FileWriter("Profiles.txt", true);
+                
+                writer.write(userName + ";" + password+"\n");
+                
+                writer.close();
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+       }
 	}
