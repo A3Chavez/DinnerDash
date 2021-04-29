@@ -189,3 +189,7 @@ Total Price is: $3.5
 Order number1, Single Cheeseburger   3.5
 Total Price is: $3.5
  
+Order number1, An Actual Chicken   120.5
+Kraft Single   1.0
+Total Price is: $121.5
+ 
