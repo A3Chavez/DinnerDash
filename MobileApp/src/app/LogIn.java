@@ -113,7 +113,7 @@ public class LogIn extends JFrame implements ActionListener {
 	   
 	   public void addProfile(String userName, String password) {
            try {
-                FileWriter writer = new FileWriter("Profiles.txt", true);
+                FileWriter writer = new FileWriter("profiles.txt", true);
                 
                 writer.write("\n"+userName + " " + password);
                 
