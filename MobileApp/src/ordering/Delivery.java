@@ -43,25 +43,6 @@ public class Delivery {
 	 * 
 	 */
 	public void fileReader(Scanner fileScanner) {
-		/*int i = 0;   //COUNTER
-		
-		while(fileScanner.hasNext()) {   ////////////////////////////WHILE LOOP
-			if( !fileScanner.hasNext(";")) {
-				deliveryDrivers.add(fileScanner.next());
-				if(!fileScanner.hasNext(";")) { //if there's a last name
-					deliveryDrivers.set(i, deliveryDrivers.get(i) + "_" + fileScanner.next());
-				}	
-			} else {
-				fileScanner.next(); //Intended to clear out the ';'
-				if (fileScanner.hasNextInt()) {
-					deliveryDriversTimes.add(fileScanner.nextInt());
-				}
-			}
-			
-			i++;
-		}
-		*/
-		
 		while(fileScanner.hasNextLine()) {
 			String driver = fileScanner.nextLine();
 			tokens = new StringTokenizer(driver, ";");

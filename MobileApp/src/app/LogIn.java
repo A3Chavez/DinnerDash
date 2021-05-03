@@ -11,6 +11,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
 import javax.swing.*;
 
@@ -50,35 +52,70 @@ public class LogIn extends JFrame implements ActionListener {
 	     
 	   @Override
 	   public void actionPerformed(ActionEvent ae) {
+		  boolean profileExists = false;
 	      String userName = userName_text.getText();
-	      String password = password_text.getText();
+	      String password = "";
+	      char[] array = new char[30];
+	      Scanner fileReader = null;	      
 	      
-	      if (userName.trim().equals("admin") && password.trim().equals("dinnerdash")) {
-	         message.setText(" Hello " + userName + "");
-	         File inputFile = new File("menu");
-	         try {
-				Driver guiFrame = new Driver(inputFile);
-			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
-				//e1.printStackTrace();
-				JOptionPane.showMessageDialog(null,"Error! Menu File not found!", "Please reinput", JOptionPane.ERROR_MESSAGE);
-			}
-			catch(Exception e1) {
-				JOptionPane.showMessageDialog(null, "Error! Program terminated", " Error", JOptionPane.ERROR_MESSAGE);
-			}
-	      } else {
-	    	 
-	         //message.setText(" Invalid user. Try Again or Exit Out.");
-	         addProfile(userName, password);
+	      try {
+	    	  fileReader = new Scanner(new File("profiles.txt"));
+	      } catch (FileNotFoundException e) {
+	    	  e.printStackTrace();
 	      }
-	     
+	      
+	      array = password_text.getPassword();
+	      
+	      for(int i=0; i<array.length; i++)
+	    	  password = password + array[i];
+	      
+	      password = password.trim();
+	      
+	      while(fileReader.hasNextLine()) {
+	    	  String fileUserName = fileReader.next();
+              String filePassword = fileReader.next();
+                  
+              if(fileUserName.equals(userName) && filePassword.equals(password))
+                   profileExists = true;     
+              
+              if(profileExists)
+                  break;
+	  	  }
+	      fileReader.close();
+	  		
+	      if(!profileExists) {
+              JOptionPane.showMessageDialog(null,"Error! Profile not found. Adding profile", "Adding profile", JOptionPane.ERROR_MESSAGE);
+              addProfile(userName, password); 
+              
+              try {
+                  File inputFile = new File("menu");
+                    Driver guiFrame = new Driver(inputFile);
+            
+                } catch (FileNotFoundException e1) {
+                    JOptionPane.showMessageDialog(null,"Error! Menu File not found!", "Please reinput", JOptionPane.ERROR_MESSAGE);
+            
+                } catch(Exception e1) {
+                    JOptionPane.showMessageDialog(null, "Error! Program terminated", " Error", JOptionPane.ERROR_MESSAGE);
+              }
+          } else {
+              try {
+                   File inputFile = new File("menu");
+                   Driver guiFrame = new Driver(inputFile);
+             
+                 } catch (FileNotFoundException e1) {
+                     JOptionPane.showMessageDialog(null,"Error! Menu File not found!", "Please reinput", JOptionPane.ERROR_MESSAGE);
+             
+                 } catch(Exception e1) {
+                     JOptionPane.showMessageDialog(null, "Error! Program terminated", " Error", JOptionPane.ERROR_MESSAGE);
+               }
+          }
 	   }
 	   
 	   public void addProfile(String userName, String password) {
            try {
                 FileWriter writer = new FileWriter("Profiles.txt", true);
                 
-                writer.write(userName + ";" + password+"\n");
+                writer.write("\n"+userName + " " + password);
                 
                 writer.close();
                 
