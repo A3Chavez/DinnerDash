@@ -1,17 +1,5 @@
 package app;
-//////////////////////////////////////////
-//Run MainStart.java to include the login/
-////Login: admin                         /
-////password: dinnerdash                 /
-////Or guest option                      /
-//////////////////////////////////////////
 
-
-
-//import Ordering.*;
-
-
-//import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -19,8 +7,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
-//import javax.swing.SwingConstants;
-//import javax.swing.JTextField;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.event.ActionListener;
@@ -29,10 +15,11 @@ import java.io.FileNotFoundException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JTextArea;
-//import java.awt.SystemColor;
-//import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class MainStart extends JFrame {
 
@@ -68,10 +55,12 @@ public class MainStart extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
+		setLocationRelativeTo(null);	// Center frame
+		
 		JButton btnNewButton_1 = new JButton("Login");
 		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {//Admin Login
-				//File login = new File("login");
+			public void actionPerformed(ActionEvent e) {//User Login
+				setVisible(false);
 				LogIn guiFrame = new LogIn();
 			}
 		});
@@ -80,21 +69,16 @@ public class MainStart extends JFrame {
 		btnNewButton_1_1.addActionListener(new ActionListener()  {//Guest Login
 			public void actionPerformed(ActionEvent e) {
 				File inputFile = new File("menu");
+				boolean loggedIn = false;
 				try {
-					Driver guiFrame = new Driver(inputFile);
+					setVisible(false);
+					Driver guiFrame = new Driver(inputFile, loggedIn);
 				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					//e1.printStackTrace();
 					JOptionPane.showMessageDialog(null,"Error! Menu File not found!", "Please reinput", JOptionPane.ERROR_MESSAGE);
 				}
 				catch(Exception e1) {
 					JOptionPane.showMessageDialog(null, "Error! Program terminated", " Error", JOptionPane.ERROR_MESSAGE);
 				}
-				
-				
-				
-				
-				
 			}
 		});
 		

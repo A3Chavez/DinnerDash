@@ -193,3 +193,59 @@ Order number1, An Actual Chicken   120.5
 Kraft Single   1.0
 Total Price is: $121.5
  
+Order number1, Double Cheeseburger   4.5
+Chicken Fajita Pita   15.0
+Total Price is: $19.5
+ 
+Order number1, Chicken Fajita Pita   15.0
+Hangover Happy Meal   22.0
+Total Price is: $37.0
+ 
+Order number1, Hangover Happy Meal   22.0
+Total Price is: $22.0
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Hangover Happy Meal   22.0
+Total Price is: $22.0
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number2, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number2, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number2, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number2, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number2, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number1, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
+Order number2, Single Cheeseburger   3.5
+Total Price is: $3.5
+ 
