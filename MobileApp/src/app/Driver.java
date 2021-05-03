@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ import java.io.IOException;
 
 public class Driver extends JFrame {
 	private double totalCost;
+	private boolean loggedIn;
 	private Menu menu;
 	private JPanel receipt;
 	private JPanel centerPanel;
@@ -47,7 +49,9 @@ public class Driver extends JFrame {
 	private JButton button;
 	private JLabel success;
 	
-	public Driver(File givenMenu) throws FileNotFoundException {
+	public Driver(File givenMenu, boolean loggedIn) throws FileNotFoundException {
+		this.loggedIn = loggedIn;
+		
 		totalCost = 0;
 		itemInformation = "";
 		
@@ -57,6 +61,8 @@ public class Driver extends JFrame {
 		create();
 		
 		setSize(1200,1000);
+		setLocationRelativeTo(null);
+		
 		setTitle("Dinner Dash Mobile App");
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -192,11 +198,12 @@ public class Driver extends JFrame {
 		cookTime += itemCookTime;
 	}
 	
-	private void payWindow() {
+	private void payWindow(boolean deliveryFlag) {
         JPanel panel = new JPanel();
         JFrame frame = new JFrame();
         
         frame.setSize(300, 200);
+        frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(panel);
@@ -246,11 +253,13 @@ public class Driver extends JFrame {
             	
             	frame.dispose();
             	
-            	try {
-            		Delivery deliveryTime = new Delivery(cookTime);
-            		cookTime = deliveryTime.addUpTo();
-            	} catch (FileNotFoundException notFound) {
-            		JOptionPane.showMessageDialog(null, "Error! Program terminated", " Error", JOptionPane.ERROR_MESSAGE);
+            	if(deliveryFlag) {
+            		try {
+            			Delivery deliveryTime = new Delivery(cookTime);
+            			cookTime = deliveryTime.addUpTo();
+            		} catch (FileNotFoundException notFound) {
+            			JOptionPane.showMessageDialog(null, "Error! Program terminated", " Error", JOptionPane.ERROR_MESSAGE);
+            		}
             	}
             	
             	JFrame cookTimeFrame = new JFrame();
@@ -262,7 +271,9 @@ public class Driver extends JFrame {
 	public void delivery() {
 		JPanel deliveryPanel = new JPanel();
 		JFrame deliveryFrame = new JFrame();
+		
 		deliveryFrame.setSize(500, 300);
+		deliveryFrame.setLocationRelativeTo(null);
 		deliveryFrame.setResizable(false);
 		deliveryFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		deliveryFrame.setVisible(true);
@@ -283,23 +294,45 @@ public class Driver extends JFrame {
 		deliveryPanel.add(delivery);
 		
 		pickUp.addActionListener(new ActionListener() {
-	           @Override
-	           public void actionPerformed(ActionEvent e) {
-	        	   deliveryFrame.dispose();
-	        	   payWindow();
-	        	   delete();
-	           }
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	        	deliveryFrame.dispose();
+	        	boolean deliveryFlag = false;
+	        	
+	        	if(!loggedIn)
+	        		payWindow(deliveryFlag);
+	        	else {
+	        		JFrame cookTimeFrame = new JFrame();
+	            	JOptionPane.showMessageDialog(cookTimeFrame, "Your food will be ready in: " + cookTime + " minutes!");
+	        	}
+
+	        	    delete();
+	        }
 	    });
 		 
 		delivery.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				deliveryFrame.dispose();
+				boolean deliveryFlag = true;
 				
 				JFrame deliveryFrame2 = new JFrame();
 			    Object result = JOptionPane.showInputDialog(deliveryFrame2, "Enter your address:");
 
-			    payWindow();
+			    if(!loggedIn)
+			    	payWindow(deliveryFlag);
+			    else {
+			    	try {
+            			Delivery deliveryTime = new Delivery(cookTime);
+            			cookTime = deliveryTime.addUpTo();
+            		} catch (FileNotFoundException notFound) {
+            			JOptionPane.showMessageDialog(null, "Error! Program terminated", " Error", JOptionPane.ERROR_MESSAGE);
+            		}
+			    	
+			    	JFrame cookTimeFrame = new JFrame();
+	            	JOptionPane.showMessageDialog(cookTimeFrame, "Your food will be ready in: " + cookTime + " minutes!");
+			    }
+			    
 			    delete();
 			}
 		});
