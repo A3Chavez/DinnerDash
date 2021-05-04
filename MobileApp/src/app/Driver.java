@@ -1,7 +1,6 @@
 package app;
 import ordering.Menu;
 import ordering.MenuItem;
-import ordering.Payment;
 import ordering.CreditCard;
 import ordering.Delivery;
 
