@@ -201,7 +201,7 @@ public class Driver extends JFrame {
         JPanel panel = new JPanel();
         JFrame frame = new JFrame();
         
-        frame.setSize(300, 200);
+        frame.setSize(300, 150);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
