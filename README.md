@@ -31,7 +31,7 @@ If the customer is logged in, selecting the Pick-Up option will display the time
 ask for a delivery address before displaying the delivery time. If the customer is a guest, the payment window will appear before displaying 
 the respective windows mentioned for the logged in customer.</p>
 <img alt="features" src="https://github.com/A3Chavez/DinnerDash/blob/master/assets/delivery_option_window.PNG" />
-<img alt="features" src="https://github.com/A3Chavez/DinnerDash/blob/master/assets/payment_window.PNG" />
+
 <img alt="features" src="https://github.com/A3Chavez/DinnerDash/blob/master/assets/delivery_address_window.PNG" />
 <img alt="features" src="https://github.com/A3Chavez/DinnerDash/blob/master/assets/cookTime_window.PNG" />
 
