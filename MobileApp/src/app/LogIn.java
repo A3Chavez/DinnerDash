@@ -22,6 +22,9 @@ public class LogIn extends JFrame implements ActionListener {
 	   JButton submit, cancel;
 	   boolean loggedIn;
 	   
+	   /**
+	   * LogIn constructor
+	   */
 	   public LogIn() {   
 	      // User name Label
 	      user_label = new JLabel();
@@ -112,6 +115,11 @@ public class LogIn extends JFrame implements ActionListener {
           }
 	   }
 	   
+	   /**
+	   * Adds profile to the profiles text file
+	   * @param userName
+	   * @param password
+	   */
 	   public void addProfile(String userName, String password) {
            try {
                 FileWriter writer = new FileWriter("profiles.txt", true);
@@ -125,7 +133,10 @@ public class LogIn extends JFrame implements ActionListener {
                 e.printStackTrace();
             }
        }
-	   
+	   /**
+	   * adds credit card information to a text file
+	   * @param userName
+	   */
 	   public void addCreditInfo(String userName) {
 	       panel.setLayout(null);
 	       setSize(300,150);
