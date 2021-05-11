@@ -1,3 +1,9 @@
+/**
+*
+* Creates the menu containing all the items
+* from the given file
+*
+*/
 package ordering;
 
 import java.io.File;
@@ -19,6 +25,10 @@ public class Menu {
 	private StringTokenizer tokens;
 	private Scanner sc;
 	
+	/**
+	* Menu constructor
+	* @param menuName the file containing the menu items
+	*/
 	public Menu(File menuName) throws FileNotFoundException {
 		menuItems = new ArrayList<MenuItem>();
 		sc = new Scanner(menuName);
@@ -26,6 +36,11 @@ public class Menu {
 		inputFile = menuName.getName();
 	}
 	
+	
+	/**
+	* Reads through the file and turns each line into 
+	* a menu item
+	*/
 	public void readInputFile() {
 		while(sc.hasNextLine()) {
 			String item = sc.nextLine();
@@ -41,10 +56,19 @@ public class Menu {
 		sc.close();
 	}
 	
+	/**
+	* Getter for the menu items
+	* @return ArrayList<MenuItem> 
+	*/
 	public ArrayList<MenuItem> getMenuItems() {
 		return menuItems;
 	}
 	
+	/**
+	* Processes the items that the user orders
+	* @param itemsOrdered list of the items that the user ordered
+	* @param orderPrice the total sum price of the items
+	*/
 	public void logOrder(ArrayList<MenuItem> itemsOrdered, double orderPrice) throws IOException {
 		orderLoggerStream = new FileWriter(getFileInstance(),true);
 		orderLogger = new BufferedWriter(orderLoggerStream);
@@ -59,6 +83,10 @@ public class Menu {
 		orderLogger.close();
 	}
 	
+	/**
+	* Creates a new orders file if one is not present
+	* @return the new file
+	*/
 	private File getFileInstance() {
 		if (orders == null) {
 			String fileName = inputFile + " " + "ItemOrders.txt";
