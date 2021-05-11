@@ -1,3 +1,6 @@
+/**
+* Credit card class
+*/
 package ordering;
 
 public class CreditCard {
@@ -13,14 +16,28 @@ public class CreditCard {
 		}
 	}
 	
+	/**
+	* Getter for the credit card number
+	* @return the credit card number
+	*/
 	public String getCardNum() {
 		return cardNum;
 	}
 	
+	/**
+	* Getter for the card holder
+	* @return the card holder
+	*/
 	public String getCardHolder() {
 		return cardHolder;
 	}
 	
+	/**
+	* Checks if the length of the card number is valid
+	* @param cardNum 
+	* @param cardHolder
+	* @return Whether the card number length is valid or not
+	*/
 	private boolean isValid(String cardNum, String cardHolder) {
 		if(cardNum.length() < 13 || cardNum.length() > 16 || cardHolder.length() == 0)
 			return false;
@@ -28,6 +45,10 @@ public class CreditCard {
 			return true;
 	}
 	
+	/**
+	* Converts given object to a string
+	* @return String
+	*/
 	public String toString() {
 		String tmp = cardHolder + " " + cardNum;
 		return tmp;
