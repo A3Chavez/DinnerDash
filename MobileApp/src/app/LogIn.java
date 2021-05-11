@@ -1,3 +1,8 @@
+/**
+*
+* Implements a Login feature 
+*
+*/
 package app;
 
 import java.awt.*;
