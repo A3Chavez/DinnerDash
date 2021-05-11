@@ -1,3 +1,8 @@
+/**
+*
+* Implements the food delivery option
+*
+*/
 package ordering;
 import java.io.File;
 //import java.io.BufferedReader;
@@ -21,7 +26,7 @@ public class Delivery {
 	
 /*
  * Initialized the random object, the deliveryDrivers, and the deliveryDriversTimes
- * 
+ * @param cookTime the amount of time the items will take to cook
  */
 	public Delivery(int cookTime) throws FileNotFoundException {
 		deliveryDrivers = new ArrayList<String>();
@@ -40,7 +45,7 @@ public class Delivery {
 	/*
 	 * Populates the given minutes / drivers from the given text file
 	 * into the deliveryDrivers and the deliveryDriversTimes arrayLists.
-	 * 
+	 * @param fileScanner the Scanner that reads through the file
 	 */
 	public void fileReader(Scanner fileScanner) {
 		while(fileScanner.hasNextLine()) {
@@ -60,6 +65,7 @@ public class Delivery {
 	/*
 	 * This method is intended to add up the delivery drivers times with the respective
 	 * time to prepare each meal.
+	 * @return sum of the cook time and delivery time
 	 */
 	public int addUpTo() {
 		totalTime = cookTime + deliveryDriversTimes.get(selectedDriver);
