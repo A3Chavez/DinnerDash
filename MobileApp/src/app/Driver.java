@@ -1,3 +1,9 @@
+/**
+* 
+* Driver class containing the main GUI
+* for the app
+*
+*/
 package app;
 import ordering.Menu;
 import ordering.MenuItem;
@@ -68,6 +74,9 @@ public class Driver extends JFrame {
 		setVisible(true);
 	}
 	
+	/**
+	* Creates the window in which the panels are displayed
+	*/
 	public void create() {
 		JPanel mainPanel = (JPanel) getContentPane();
 		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, getItemButtons(), getReceipt());
@@ -76,7 +85,11 @@ public class Driver extends JFrame {
 		mainPanel.setLayout(new BorderLayout());
 		mainPanel.add(splitPane, BorderLayout.CENTER);
 	}
-
+	
+	/**
+	* Displays the buttons containing the menu items
+	* @return the button display
+	*/
 	private JScrollPane getItemButtons() {
 		JPanel pan = new JPanel();
 		pan.setLayout(new GridLayout(0,2));
@@ -102,6 +115,10 @@ public class Driver extends JFrame {
 		return scroller;
 		}
 
+	/**
+	* Displays the items ordered and the total cost
+	* @return the panel that displays the receipt
+	*/
 	private JPanel getReceipt() {
 		receipt = new JPanel();
 		JLabel label = new JLabel("Cart:");
@@ -177,6 +194,9 @@ public class Driver extends JFrame {
 		return receipt;
 	}
 	
+	/**
+	* Clears the cart and resets cost to zero
+	*/
 	private void delete() {
 		orderPrice.setText("Total Cost = $0.00");
 		totalCost = 0;
@@ -197,6 +217,11 @@ public class Driver extends JFrame {
 		cookTime += itemCookTime;
 	}
 	
+	/**
+	* Displays a window that prompts the user to
+	* add their name and credit card information
+	* @param deliveryFlag True if user wants food delivered
+	*/
 	private void payWindow(boolean deliveryFlag) {
         JPanel panel = new JPanel();
         JFrame frame = new JFrame();
@@ -266,7 +291,10 @@ public class Driver extends JFrame {
             }
         });
     }
-	
+	/**
+	* Displays a window which prompts the user to choose
+	* between delivery or pickup
+	*/
 	public void delivery() {
 		JPanel deliveryPanel = new JPanel();
 		JFrame deliveryFrame = new JFrame();
