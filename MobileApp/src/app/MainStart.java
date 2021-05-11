@@ -1,3 +1,8 @@
+/**
+* 
+* The starting menu for the app
+* 
+*/
 package app;
 
 import java.awt.EventQueue;
@@ -22,10 +27,7 @@ import java.awt.Toolkit;
 import javax.swing.JTextArea;
 
 public class MainStart extends JFrame {
-
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
@@ -44,7 +46,7 @@ public class MainStart extends JFrame {
 	
 	
 	/**
-	 * Create the frame.
+	 * Creates the frame for the start menu
 	 */
 	public MainStart() {
 		setTitle("DinnerDash");
